@@ -25,7 +25,7 @@ BT varlıklarının (sunucuların) kaydedildiği, listelendiği ve güncellendi�
 | `main.py` | API uygulaması |
 | `test_api.py` | Uçtan uca test scripti |
 | `requirements.txt` | Bağımlılıklar |
-| `README.md` | Bu doküman |
+| `README.md` | Kurulum, çalıştırma ve API kullanım kılavuzu |
 
 ---
 
