@@ -163,39 +163,29 @@ Doğrulama hatası (**422**):
 
 ## Örnek istekler
 
-Windows (PowerShell / CMD) için satır devamı `^` kullanılır. Linux/macOS’ta `\` kullanın.
+Aşağıdaki `curl` komutları **Windows CMD** içinde kopyala-yapıştır ile çalışır. PowerShell kullanıyorsanız önce `cmd` yazıp Enter'a basarak CMD'ye geçin.
 
 ```bash
 # Sağlık kontrolü
 curl http://localhost:8000/health
 
 # Sunucu ekle
-curl -X POST http://localhost:8000/servers ^
-  -H "Content-Type: application/json" ^
-  -H "X-API-Key: konsalt-dev-key" ^
-  -d "{\"name\":\"web-01\",\"ip\":\"192.168.1.10\",\"os\":\"ubuntu\",\"ram_gb\":8,\"status\":\"running\"}"
+curl -X POST http://localhost:8000/servers -H "Content-Type: application/json" -H "X-API-Key: konsalt-dev-key" -d "{\"name\":\"web-01\",\"ip\":\"192.168.1.10\",\"os\":\"ubuntu\",\"ram_gb\":8,\"status\":\"running\"}"
 
 # Listele (filtre + sayfalama)
-curl "http://localhost:8000/servers?status=running&os=ubuntu&limit=10&offset=0" ^
-  -H "X-API-Key: konsalt-dev-key"
+curl "http://localhost:8000/servers?status=running&os=ubuntu&limit=10&offset=0" -H "X-API-Key: konsalt-dev-key"
 
 # Tek kayıt
-curl http://localhost:8000/servers/web-01 ^
-  -H "X-API-Key: konsalt-dev-key"
+curl http://localhost:8000/servers/web-01 -H "X-API-Key: konsalt-dev-key"
 
 # Güncelle
-curl -X PUT http://localhost:8000/servers/web-01 ^
-  -H "Content-Type: application/json" ^
-  -H "X-API-Key: konsalt-dev-key" ^
-  -d "{\"ip\":\"192.168.1.11\",\"os\":\"ubuntu\",\"ram_gb\":16,\"status\":\"maintenance\"}"
+curl -X PUT http://localhost:8000/servers/web-01 -H "Content-Type: application/json" -H "X-API-Key: konsalt-dev-key" -d "{\"ip\":\"192.168.1.11\",\"os\":\"ubuntu\",\"ram_gb\":16,\"status\":\"maintenance\"}"
 
 # İstatistikler
-curl http://localhost:8000/stats ^
-  -H "X-API-Key: konsalt-dev-key"
+curl http://localhost:8000/stats -H "X-API-Key: konsalt-dev-key"
 
 # Sil
-curl -X DELETE http://localhost:8000/servers/web-01 ^
-  -H "X-API-Key: konsalt-dev-key"
+curl -X DELETE http://localhost:8000/servers/web-01 -H "X-API-Key: konsalt-dev-key"
 ```
 
 ---
